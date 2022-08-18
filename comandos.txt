@@ -1,0 +1,34 @@
+@Enumerated(EnumType.STRING)// TEMOS 2 TIPOS PARA USAR ENUM COMO STRING E COMO POSIÇÃO DENTRO DA PUBLIC ENUM, MAIS GARANTIA STRING
+//@Column(name= "desc") quando nome da coluna no banco for diverente do atributo private usamos este comando para indentificar qual nome da coluna no banco.
+@Id //identificando a chave primaria 
+@GeneratedValue(strategy = GenerationType.IDENTITY) // monstrando ou java que quem vai preencher o id e o banco , entao ele vai ser nullo mesmo.
+//@Column(name= "desc") quando nome da coluna no banco for diverente do atributo private usamos este comando para indentificar qual nome da coluna no banco.
+// muito para um relacionamento das tabelas produtos e categorias
+@ManyToOne muito para 1
+@ManyToMany muitois para muitos
+@OneToOne 1 para 1
+@OneToMany 1 para muitos
+
+//JPQL // passa parametro por nome ":qlqcoisa" ex : :nome ou paramentro posicional ?1 ?2 ?3
+
+	@JoinTable()
+	@OneToMany(mappedBy = "pedido",cascade = CascadeType.ALL)
+
+@NamedQuery(name = "produtosProCategoria", query = "SELECT p FROM Produto p WHERE p.categoria.nome = :nome")
+na propria entidade ter a consulta 
+@ManyToOne(fetch = FetchType.LAZY)
+relacionamentos ToOne ele e por padrao EAGER ele carrega mesmo nao precisando
+
+@Embeddable
+public class DadosPessoais {
+@Embedded
+	private DadosPessoais dadosPessoais;
+
+
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class MAE ou PAI
+TRABALHANDO COM ERANÇA DE CLASSES, ASSIM ELA VAI FAZER UMA UNICA TABELA NO BANCO COM AS INFORMAÇOES ESPECIFICAS DE CADA ERANÇA 
+
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Produto
+DESTE FORMA SAO CRIADAS TABELAS DIFERENTES COM FK DA CLASSE MAE OU PAI

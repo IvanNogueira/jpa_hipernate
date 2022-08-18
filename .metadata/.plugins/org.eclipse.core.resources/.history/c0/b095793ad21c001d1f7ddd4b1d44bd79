@@ -1,0 +1,21 @@
+package br.com.alura.loja.modelo;
+
+import java.math.BigDecimal;
+
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "produtos")
+public class Produto {
+	
+	private Long id;
+	private String nome;
+	//@Column(name= "desc") quando nome da coluna no banco for diverente do atributo private usamos este comando para indentificar qual nome da coluna no banco.
+	private String descricao;
+	private BigDecimal preco;
+	
+	
+	
+}//fechamento class produto

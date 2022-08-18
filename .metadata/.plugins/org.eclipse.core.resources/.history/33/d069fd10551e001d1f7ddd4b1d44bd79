@@ -1,0 +1,20 @@
+package br.com.alura.loja.dao;
+
+import javax.persistence.EntityManager;
+
+import br.com.alura.loja.modelo.Pedido;
+
+public class PedidoDao2 {
+
+	private EntityManager em;
+
+	public PedidoDao2(EntityManager em) {
+		this.em = em;
+	}
+	
+	public void cadastrar(Pedido Pedido) {
+		this.em.persist(Pedido);
+	}
+	
+	
+}//fechamento ProdutoDao

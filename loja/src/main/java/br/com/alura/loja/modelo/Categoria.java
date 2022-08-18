@@ -1,21 +1,16 @@
 package br.com.alura.loja.modelo;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "categorias")
 public class Categoria {
 	
-	//identificando a chave primaria
-	@Id  
-	// monstrando au java que quem vai preencher o id e o banco , entao ele vai ser nullo mesmo.
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String nome;
+	
+	@EmbeddedId
+	private CategoriaId id;
 	
 	
 	public Categoria() {
@@ -23,16 +18,14 @@ public class Categoria {
 	}
 	
 	public Categoria(String nome) {
-		super();
-		this.nome = nome;
+
+		this.id = new CategoriaId(nome, "xpto");
 	}
 
 	public String getNome() {
-		return nome;
+		return this.id.getNome();
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+	
 	
 }
